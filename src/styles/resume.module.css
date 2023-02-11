@@ -1,0 +1,42 @@
+.App {
+    padding: 50px;
+}
+.AppHeader {
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.TitleLink {
+    flex: 1;
+    text-align: center;
+    font-size: 36px;
+}
+
+.TitleLink:hover {
+    color: #007bff;
+}
+
+.BackArrow {
+    flex: 1;
+    text-align: left;
+}
+.Frame {
+    border: none;
+    width: 1000px;
+    height: 800px;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    /* width: 100%; */
+    /* height: 1000px; */
+}
+
+.ResumeContainer {
+    display: flex;
+
+    /* height: 100vh; */
+    justify-content: center;
+    align-items: center;
+}

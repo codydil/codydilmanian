@@ -1,0 +1,39 @@
+  .title {
+	padding-top: 0.25em;
+  }
+  
+  .vertical-timeline-element-content {
+	box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25),
+	  0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;
+	padding: 2em 3em !important;
+  }
+  
+  .date {
+	color: rgb(201, 251, 255);
+  }
+  
+  .description {
+	margin: 1.5em 0 .5em 0;
+  }
+  
+  .buttontimeline {
+	/* background: #f9c74f; */
+	margin-top: 20px;
+	background: rgb(42, 53, 207, 0.8);
+	text-decoration: none;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	color: white;
+	display: inline-block;
+	white-space: nowrap;
+	cursor: pointer;
+  }
+  
+  @media only screen and (max-width: 1700px) {
+	.vertical-timeline-element-date {
+	  display: block !important;
+	  float: none !important;
+	  color: rgb(44, 44, 44);
+	  margin-top: 1.5em;
+	}
+  }
