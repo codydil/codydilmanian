@@ -32,14 +32,7 @@ function Timeline() {
                             iconStyle={schoolIconStyles}
                             icon={<SchoolIcon />}
                         >
-                            <h3
-                                className={
-                                    ("vertical-timeline-element-title",
-                                    styles.title)
-                                }
-                            >
-                                {element.title}
-                            </h3>
+                            <h3 className={styles.title}>{element.title}</h3>
                             <p className={styles.description}>
                                 {element.description}
                             </p>
