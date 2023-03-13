@@ -13,7 +13,7 @@ import "react-vertical-timeline-component/style.min.css";
 import { PageContext } from "../Context";
 import SchoolIcon from "./school";
 
-function Timeline() {
+const Timeline: any = () => {
     let schoolIconStyles = { background: "#f9c74f" };
 
     const [, setPage] = useContext(PageContext);
@@ -54,6 +54,6 @@ function Timeline() {
         console.log(e);
         return;
     }
-}
+};
 
 export default Timeline;

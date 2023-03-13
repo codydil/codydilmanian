@@ -9,7 +9,7 @@ const Background = (props: any) => {
     const [page, setPage] = React.useContext(PageContext);
 
     return (
-        <body className={styles.body}>
+        <div className={styles.body}>
             <div className={styles.app}>
                 <header className={styles.header}>
                     <Link href="/">
@@ -30,7 +30,7 @@ const Background = (props: any) => {
                     <p>Programmed and Written By Cody and Brayden Dilmanian</p>
                 </footer>
             </div>
-        </body>
+        </div>
     );
 };
 
