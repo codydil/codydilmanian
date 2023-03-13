@@ -37,7 +37,10 @@ export default function App() {
                             content="Cody Dilmanian, Cody, Dilmanian, Civil War, Timeline, Project"
                         />
                         <meta name="author" content="Cody Dilmanian" />
-                        <link rel="icon" href="/doctoreckersicon.png" />
+                        <link
+                            rel="icon"
+                            href="/doctorEckersImages/doctoreckersicon.png"
+                        />
                     </Head>
                     {pageDisplay()}
                 </Background>

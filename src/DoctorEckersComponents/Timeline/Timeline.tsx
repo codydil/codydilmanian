@@ -1,5 +1,4 @@
-import React from "react";
-
+import { useContext } from "react";
 import styles from "./timeline.module.css";
 
 import timelineElements from "./timelineElements";
@@ -17,37 +16,44 @@ import SchoolIcon from "./school";
 function Timeline() {
     let schoolIconStyles = { background: "#f9c74f" };
 
-    const [, setPage] = React.useContext(PageContext);
+    const [, setPage] = useContext(PageContext);
 
-    return (
-        <div>
-            <VerticalTimeline>
-                {timelineElements.map((element) => {
-                    return (
-                        <VerticalTimelineElement
-                            className="vertical-timeline-element--work"
-                            key={element.id}
-                            date={element.date}
-                            dateClassName="date"
-                            iconStyle={schoolIconStyles}
-                            icon={<SchoolIcon />}
-                        >
-                            <h3 className={styles.title}>{element.title}</h3>
-                            <p className={styles.description}>
-                                {element.description}
-                            </p>
-                            <div
-                                className={styles.buttontimeline}
-                                onClick={() => setPage(element.id)}
+    try {
+        return (
+            <div>
+                <VerticalTimeline>
+                    {timelineElements.map((element) => {
+                        return (
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                key={element.id}
+                                date={element.date}
+                                dateClassName="date"
+                                iconStyle={schoolIconStyles}
+                                icon={<SchoolIcon />}
                             >
-                                View Summary
-                            </div>
-                        </VerticalTimelineElement>
-                    );
-                })}
-            </VerticalTimeline>
-        </div>
-    );
+                                <h3 className={styles.title}>
+                                    {element.title}
+                                </h3>
+                                <p className={styles.description}>
+                                    {element.description}
+                                </p>
+                                <div
+                                    className={styles.buttontimeline}
+                                    onClick={() => setPage(element.id)}
+                                >
+                                    View Summary
+                                </div>
+                            </VerticalTimelineElement>
+                        );
+                    })}
+                </VerticalTimeline>
+            </div>
+        );
+    } catch (e) {
+        console.log(e);
+        return;
+    }
 }
 
 export default Timeline;
