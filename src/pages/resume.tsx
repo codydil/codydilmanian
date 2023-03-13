@@ -27,6 +27,8 @@ export default function App() {
                     content="Cody Dilmanian, Cody, Dilmanian, Resume, Software, Engineer"
                 />
                 <meta name="author" content="Cody Dilmanian" />
+                {/* set icon */}
+                <link rel="icon" href="/mainPage/profile.jpeg" />
             </Head>
         </>
     );

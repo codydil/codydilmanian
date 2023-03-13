@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { useState, useEffect, useRef } from "react";
 import styles from "../styles/index.module.css";
+import Head from "next/head";
 
 function App() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -128,7 +129,7 @@ function App() {
             if (intersects.length > 0) {
                 const firstIntersect = intersects[0];
                 if (firstIntersect.object === avatar) {
-                    window.location.href = "/resume";
+                    window.location.href = "/resume.pdf";
                 }
                 if (firstIntersect.object === planet) {
                     window.location.href = "/doctoreckersproject";
@@ -157,16 +158,22 @@ function App() {
         }
     }, []);
     return (
-        <canvas
-            ref={canvasRef}
-            id="bg"
-            style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                zIndex: -1,
-            }}
-        ></canvas>
+        <>
+            <Head>
+                <title>Home</title>
+                <link rel="icon" href="/mainPage/profile.jpeg" />
+            </Head>
+            <canvas
+                ref={canvasRef}
+                id="bg"
+                style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    zIndex: -1,
+                }}
+            ></canvas>
+        </>
     );
 }
 
