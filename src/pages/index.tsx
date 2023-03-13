@@ -89,14 +89,26 @@ function App() {
 
         scene.add(planet);
 
-        planet.position.z = 30;
-        planet.position.setX(-10);
+        const saturneTexture = new THREE.TextureLoader().load(
+            "mainPage/saturne.jpg"
+        );
+
+        const saturne = new THREE.Mesh(
+            new THREE.SphereGeometry(5, 32, 32),
+            new THREE.MeshStandardMaterial({ map: saturneTexture })
+        );
+
+        scene.add(saturne);
 
         function moveCamera() {
             const t = document.body.getBoundingClientRect().top;
             planet.rotation.x += 0.05;
             planet.rotation.y += 0.075;
             planet.rotation.z += 0.05;
+
+            saturne.rotation.x += 0.05;
+            saturne.rotation.y += 0.075;
+            saturne.rotation.z += 0.05;
 
             avatar.rotation.y += 0.01;
             avatar.rotation.z += 0.01;
@@ -113,6 +125,28 @@ function App() {
             torus.rotation.x += 0.01;
             torus.rotation.y += 0.001;
             torus.rotation.y += 0.01;
+
+            const orbitRadius = 30;
+            const orbitSpeed = 0.2;
+            const avatarPosition = avatar.position.clone();
+            avatarPosition.y = 0;
+            const planetPosition = new THREE.Vector3(
+                Math.cos(orbitSpeed * Date.now() * 0.001) * orbitRadius,
+                0,
+                Math.sin(orbitSpeed * Date.now() * 0.001) * orbitRadius
+            );
+            planetPosition.add(avatarPosition);
+            planet.position.copy(planetPosition);
+
+            const SaturnePosition = new THREE.Vector3(
+                Math.cos(orbitSpeed * Date.now() * 0.001 + Math.PI) *
+                    orbitRadius,
+                0,
+                Math.sin(orbitSpeed * Date.now() * 0.001 + Math.PI) *
+                    orbitRadius
+            );
+            planetPosition.add(avatarPosition);
+            saturne.position.copy(SaturnePosition);
 
             controls.update();
 
@@ -134,6 +168,10 @@ function App() {
                 if (firstIntersect.object === planet) {
                     window.location.href = "/doctoreckersproject";
                 }
+                if (firstIntersect.object === saturne) {
+                    window.location.href =
+                        "https://www.linkedin.com/in/cody-dilmanian/";
+                }
             }
         }
         canvas.addEventListener("click", onCanvasClick);
@@ -153,7 +191,7 @@ function App() {
             mouse.x = (event.clientX / canvas.clientWidth) * 2 - 1;
             mouse.y = -(event.clientY / canvas.clientHeight) * 2 + 1;
             raycaster.setFromCamera(mouse, camera);
-            const objectsToIntersect = [planet, avatar];
+            const objectsToIntersect = [planet, avatar, saturne];
             return raycaster.intersectObjects(objectsToIntersect);
         }
     }, []);
