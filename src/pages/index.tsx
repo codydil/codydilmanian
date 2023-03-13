@@ -27,7 +27,7 @@ function App() {
 
         renderer.render(scene, camera);
 
-        const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+        const geometry = new THREE.TorusGeometry(10, 4, 16, 100);
 
         const material = new THREE.MeshBasicMaterial({
             map: new THREE.TextureLoader().load("mainPage/Resume_Torus.jpg"),
@@ -110,7 +110,7 @@ function App() {
         function animate() {
             requestAnimationFrame(animate);
             torus.rotation.x += 0.01;
-            torus.rotation.y += 0.005;
+            torus.rotation.y += 0.001;
             torus.rotation.y += 0.01;
 
             controls.update();
